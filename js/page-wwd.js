@@ -59,10 +59,12 @@ window.sa5.push([
     var animTabToShow = toTab + "_from_" + fromTab;
     var animTabIndex = TAB_ANIM_LOOKUP.indexOf(animTabToShow);
 
-    console.log("navigating from " + fromTab + " to " + toTab + ", selecting " + animTabToShow + " with index=" + animTabIndex);
+    console.log(
+      ">> " + fromTab + " to " + toTab + 
+      ", selecting " + animTabToShow + " [index=" + animTabIndex +"] on " + tabs_wwd_anim.name);
 
     // Show correct animation
-    tabs_wwd_anim.currentIndex = TAB_ANIM_LOOKUP[animTabIndex]
+    tabs_wwd_anim.currentIndex = animTabIndex;
 
     // Update Slider
     if (slider_wwd != null) {
