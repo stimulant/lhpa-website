@@ -32,7 +32,9 @@ document.addEventListener("DOMContentLoaded", function () {
   console.log("Registered tabs-anima ", tabs_wwd_anim.name);
 });
 
-var oldTab = 0;
+
+
+var oldTab = 0; // current tab before transition
 const TAB_MAP = ["pol", "com", "med"];
 const TAB_ANIM_LOOKUP = [
   "pol_initial",
@@ -51,20 +53,20 @@ window.sa5.push([
 
     var fromTab = TAB_MAP[oldTab];
     var toTab = TAB_MAP[index];
-    var animToShow = toTab + "_from_" + fromTab;
+    var animTabToShow = toTab + "_from_" + fromTab;
+    var animTabIndex = TAB_ANIM_LOOKUP.indexOf(animTabToShow);
 
-    //console.log("navigating from " + fromTab + " to " + toTab + ", selecting " + tabToShow);
-    //tabs.goToName(tabToShow);
-
-    oldTab = index;
+    console.log("navigating from " + fromTab + " to " + toTab + ", selecting " + animTabToShow + " with index=" + animTabIndex);
 
     // Show correct animation
-    tabs_wwd_anim.currentIndex = TAB_ANIM_LOOKUP.indexOf(animToShow);
+    tabs_wwd_anim.currentIndex = TAB_ANIM_LOOKUP[animTabIndex]
 
     // Update Slider
     if (slider_wwd != null) {
       slider_wwd.currentIndex = index;
     }
+
+    oldTab = index;
   },
 ]);
 
