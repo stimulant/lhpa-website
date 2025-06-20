@@ -49,6 +49,9 @@ const TAB_ANIM_LOOKUP = [
 window.sa5.push([
   "tabChanged",
   (tabs, index) => {
+
+    if (index == oldTab) return;
+
     console.log("TAB CHANGED", tabs.name, oldTab, index);
 
     var fromTab = TAB_MAP[oldTab];
