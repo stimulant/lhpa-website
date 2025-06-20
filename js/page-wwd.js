@@ -50,7 +50,7 @@ window.sa5.push([
   "tabChanged",
   (tabs, index) => {
 
-    if (index == oldTab || index == undefined) return;
+    if (tabs.name != "tabs-wwd" || index == oldTab || index == undefined) return;
 
     console.log("TAB CHANGED", tabs.name, oldTab, index);
 
